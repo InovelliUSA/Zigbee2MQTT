@@ -29,42 +29,55 @@ const intToFanMode = (value) => {
   return selectedMode;
 };
 
-const clickLookup = {
-  0: "single",
-  1: "release",
-  2: "held",
-  3: "double",
-  4: "triple",
-  5: "quadruple",
-  6: "quintuple",
+const clickLookup: { [key: number]: string } = {
+    0: 'single',
+    1: 'release',
+    2: 'held',
+    3: 'double',
+    4: 'triple',
+    5: 'quadruple',
+    6: 'quintuple',
+};
+const buttonLookup: { [key: number]: string } = {
+    1: 'down',
+    2: 'up',
+    3: 'config',
 };
 
-const buttonLookup = {
-  1: "down",
-  2: "up",
-  3: "config",
-};
+const ledEffects: { [key: string]: number } = {
+    off: 0,
+    solid: 1,
+    fast_blink: 2,
+    slow_blink: 3,
+    pulse: 4,
+    chase: 5,
+    open_close: 6,
+    small_to_big: 7,
+    aurora: 8,
+    slow_falling: 9,
+    medium_falling: 10,
+    fast_falling: 11,
+    slow_rising: 12,
+    medium_rising: 13,
+    fast_rising: 14,
+    medium_blink: 15,
+    slow_chase: 16,
+    fast_chase: 17,
+    fast_siren: 18,
+    slow_siren: 19,
+    clear_effect: 255,
 
-const ledEffects = {
-  Off: 0,
-  Solid: 1,
-  "Fast Blink": 2,
-  "Slow Blink": 3,
-  Pulse: 4,
-  Chase: 5,
-  "Open/Close": 6,
-  "Small to Big": 7,
-  Clear: 255,
-};
-
-const individualLedEffects = {
-  Off: 0,
-  Solid: 1,
-  "Fast Blink": 2,
-  "Slow Blink": 3,
-  Pulse: 4,
-  Chase: 5,
-  Clear: 255,
+const individualLedEffects: { [key: string]: number } = {
+    off: 0,
+    solid: 1,
+    fast_blink: 2,
+    slow_blink: 3,
+    pulse: 4,
+    chase: 5,
+    falling: 6,
+    rising: 7,
+    aurora: 8,
+    clear_effect: 255,
 };
 
 const ATTRIBUTES = {
@@ -832,7 +845,7 @@ tzLocal.inovelli_vzw35sn_parameters_readOnly = {
 };
 
 tzLocal.inovelli_led_effect = {
-  key: ["ledEffect"],
+  key: ["led_effect"],
   convertSet: async (entity, key, values, meta) => {
     await entity.command(
       "manuSpecificInovelliVZM31SN",
@@ -850,7 +863,7 @@ tzLocal.inovelli_led_effect = {
 };
 
 tzLocal.inovelli_individual_led_effect = {
-  key: ["individualLedEffect"],
+  key: ["individual_led_effect"],
   convertSet: async (entity, key, values, meta) => {
     await entity.command(
       "manuSpecificInovelliVZM31SN",
