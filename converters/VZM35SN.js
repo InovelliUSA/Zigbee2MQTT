@@ -29,7 +29,7 @@ const intToFanMode = (value) => {
   return selectedMode;
 };
 
-const clickLookup: { 
+const clickLookup = { 
     0: 'single',
     1: 'release',
     2: 'held',
@@ -38,13 +38,13 @@ const clickLookup: {
     5: 'quadruple',
     6: 'quintuple',
 };
-const buttonLookup: { 
+const buttonLookup = { 
     1: 'down',
     2: 'up',
     3: 'config',
 };
 
-const ledEffects: { 
+const ledEffects = { 
     off: 0,
     solid: 1,
     fast_blink: 2,
@@ -66,8 +66,9 @@ const ledEffects: {
     fast_siren: 18,
     slow_siren: 19,
     clear_effect: 255,
+};
 
-const individualLedEffects: { 
+const individualLedEffects = { 
     off: 0,
     solid: 1,
     fast_blink: 2,
